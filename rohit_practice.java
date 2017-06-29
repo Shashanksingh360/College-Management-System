@@ -82,14 +82,15 @@ public class practice{
 /*   	JLabel lblabout=new JLabel("About us will be here");
 		lblabout.setBounds(50, -50, 400, 250);
 		about.add(lblabout);     */
-		about.setLayout(null);
+		about.setLayout(new GridBagLayout());
+		
 		
 		
 		//About section Content--->
 		
 		
 		
-        JTextArea txtArea=new JTextArea(15,15);
+        JTextArea txtArea=new JTextArea(18,100);
 		txtArea.setText( "ABOUT US"
 
 
@@ -135,7 +136,6 @@ public class practice{
 JScrollPane scroll = new JScrollPane(txtArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 	
 txtArea.setFont(new Font("Serif", Font.ITALIC, 16));
-txtArea.setBounds(10,10,screenWidth-140, screenHeight-320);
 txtArea.setLineWrap(true);
 txtArea.setWrapStyleWord(true);
 txtArea.setEditable(false); // set textArea non-editable
