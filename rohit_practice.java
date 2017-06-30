@@ -8,7 +8,18 @@ public class practice{
 
 	JPanel home,about,login,information,contact,footer;
 	
+//content for slideshow
+	JLabel pic;
+	Timer tm;
+	int x=0;
 	
+	String[] list={
+			
+			"G:/photos/automation/dark_hand_smoke_64536_1366x768.jpg",
+			"G:/photos/automation/home-auto.jpg"
+	};
+	
+ //slideshow content end
 	
 	public static void main(String[] args) {
 		
@@ -63,15 +74,39 @@ public class practice{
 		//Buttons Design end
 		
 		//Home panel design Start
+		
 		home=new JPanel();
 		home.setBounds(50, 130, screenWidth-120, screenHeight-300);
 		home.setBackground(Color.BLUE);
-		JLabel lblhome=new JLabel("Home content here");
-		
-		
-		lblhome.setBounds(50, -50, 400, 250);
-		home.add(lblhome);
 		home.setLayout(null);
+		
+		
+		// slideshow code start
+		
+		pic=new JLabel();
+		pic.setBounds(0, 0, screenWidth-120, screenHeight-300);
+		SETImageSize(1);
+		
+		tm=new Timer(2000,new ActionListener(){
+			
+			
+			public void actionPerformed(ActionEvent e){
+				
+				SETImageSize(x);
+				x+=1;
+				if(x>=list.length)
+					x=0;
+			}
+			
+		});		
+		home.add(pic);
+		tm.start();
+		f.setLocationRelativeTo(null);
+	    pic.setVisible(true);
+		
+		//slideshow code end
+		
+		
 		//Home panel design end
 		
 		//About panel design start
@@ -79,9 +114,6 @@ public class practice{
 		about.setBounds(50, 130, screenWidth-120, screenHeight-300);
 		about.setVisible(false);
 		about.setBackground(Color.cyan);
-/*   	JLabel lblabout=new JLabel("About us will be here");
-		lblabout.setBounds(50, -50, 400, 250);
-		about.add(lblabout);     */
 		about.setLayout(new GridBagLayout());
 		
 		
@@ -144,28 +176,8 @@ scroll.setBounds(screenWidth-155,10,15, screenHeight-320);
 
 about.add(scroll);
 txtArea.setVisible(true);
-
-
-
-
-
-		   
-
-/* JScrollBar scroll = new JScrollBar();
-   scroll.setBounds(screenWidth-155,0,15, screenHeight-320);  */
-
-
- 
- 
- 
-
-
-
            
 		//About panel design end
-		
-		
-
 
 
 		//Login panel design start
@@ -283,4 +295,17 @@ txtArea.setVisible(true);
 		
 		
 	}
+	
+	//slideshow action start
+	
+	public  void SETImageSize(int i){
+		ImageIcon icon=new ImageIcon(list[i]);
+		Image img=icon.getImage();
+		Image newImg=img.getScaledInstance(pic.getWidth(), pic.getHeight(), Image.SCALE_SMOOTH);
+		 ImageIcon newImc = new ImageIcon(newImg);
+		 pic.setIcon(newImc);
+		
+	}
+	
+	//slideshow action end
 }
