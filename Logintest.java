@@ -1,5 +1,7 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Random;
+
 import javax.swing.*;
 
 public class Logintest{
@@ -7,9 +9,11 @@ public class Logintest{
 	static JFrame f;
 	JPanel home,about,login,information,contact,footer;
 	
-	String lusername,lpassword;
 	
-	//content for slideshow
+	String lusername,lpassword,rfname,rlname,rpassword,rrole,rgender,rusername;
+	
+	
+	//content for Slideshow
 		JLabel pic;
 		Timer tm;
 		int x=0;
@@ -20,7 +24,7 @@ public class Logintest{
 				"C:/Users/SHASHANK SINGH/Desktop/CMS2.jpg"
 		};
 		
-	 //slideshow content end
+	 //Slideshow content end
 	
 	public static void main(String[] args) {
 		
@@ -53,15 +57,15 @@ public class Logintest{
 		
 		int btnWidth=(screenWidth-120)/4;
 		
-		JButton b1=new JButton("About Us");
+		JButton b1=new JButton("Home");
 		b1.setFont(new Font("ARIAL", Font.BOLD, 20));
 		b1.setBounds(50, 80, btnWidth, 40);
 		
-		JButton b2=new JButton("Login");
+		JButton b2=new JButton("Login/Register");
 		b2.setFont(new Font("ARIAL", Font.BOLD, 20));
 		b2.setBounds(50+btnWidth, 80, btnWidth, 40);
 		
-		JButton b3=new JButton("Information Broucher");
+		JButton b3=new JButton("About");
 		b3.setFont(new Font("ARIAL", Font.BOLD, 20));
 		b3.setBounds(50+2*btnWidth, 80, btnWidth, 40);
 		
@@ -117,7 +121,7 @@ public class Logintest{
 				about.setLayout(new GridBagLayout());   
 
 				int nr=(screenWidth-120)/23;
-				int nc=(screenHeight-300)/12+50;
+				int nc=(screenHeight-300)/12;
 		        JTextArea txtArea=new JTextArea(32,147);
 				txtArea.setText( "ABOUT US"
 
@@ -172,7 +176,7 @@ public class Logintest{
 
 		about.add(scroll);
 		txtArea.setVisible(true);
-		//About panel design end
+		//About panel design end 
 		
 		
 		//Login panel design start
@@ -182,34 +186,105 @@ public class Logintest{
 		login.setBackground(Color.DARK_GRAY);
 		JPanel nlogin=new JPanel();
 		JButton btnlogin=new JButton("Login");
-		btnlogin.setBounds(400, 230, 80, 30);
-		int nloginsx=(50+screenWidth-120)/2-(50+screenWidth-120)/4; //Start X
-		int nloginsy=(130+screenHeight-300)/2-(130+screenHeight-300)/4; //Start Y
-		int nloginex=(50+screenWidth-180)/2; //End X
-		int nloginey=(130+screenHeight-300)/2; //End Y
+		btnlogin.setBounds(400, 400, 80, 30);
+		int nloginsx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
+		int nloginsy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
+		int nloginex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
+		int nloginey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y
 		nlogin.setBounds(nloginsx, nloginsy, nloginex, nloginey);
 		nlogin.setBackground(Color.LIGHT_GRAY);
-		JLabel userName=new JLabel("Username");
-		userName.setBounds(190, 110, 190, 20);
-		userName.setFont(new Font("ARIAL", Font.BOLD,20));
-		JLabel password=new JLabel("Password");
-		password.setBounds(190, 180, 190, 20);
-		password.setFont(new Font("ARIAL", Font.BOLD,20));
-		JTextField tbUserName=new JTextField();
-		tbUserName.setBounds(300, 100, 340, 35);
-		JPasswordField tbpassword=new JPasswordField();
-		tbpassword.setBounds(300, 170, 340, 35);
-		nlogin.add(userName);
-		nlogin.add(tbUserName);
-		nlogin.add(password);
-		nlogin.add(tbpassword);
+		JLabel lblUserName=new JLabel("Username");
+		lblUserName.setBounds(190, 220, 190, 20);
+		lblUserName.setFont(new Font("ARIAL", Font.BOLD,20));
+		JLabel lblPassword=new JLabel("Password");
+		lblPassword.setBounds(190, 300, 190, 20);
+		lblPassword.setFont(new Font("ARIAL", Font.BOLD,20));
+		JTextField txtUserName=new JTextField();
+		txtUserName.setBounds(300, 220, 340, 27);
+		JPasswordField txtPassword=new JPasswordField();
+		txtPassword.setBounds(300, 300, 340, 27);
+		JLabel lblIncorrect;
+		lblIncorrect=new JLabel();
+		lblIncorrect.setFont(new Font("ARIAL",Font.BOLD,15));
+		lblIncorrect.setBounds(330, 450, 220, 20);
+		
+		JPanel register=new JPanel();
+		int rsx=(50+screenWidth-180)/2-60+40;//125;//(50+screenWidth-180)/2-60+40;
+		int rsy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//20;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;
+		int rex=(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;//910;//(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;
+		int rey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//683;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;
+		register.setBounds(rsx,rsy, rex, rey);
+		JLabel lblFirstName,lblLastName,lblGender,lblRole,lblrpassword;
+		lblFirstName=new JLabel("First Name");
+		lblLastName=new JLabel("Last Name");
+		lblrpassword=new JLabel("Password");
+		lblGender=new JLabel("Gender");
+		lblRole=new JLabel("Role");
+		JTextField txtFname,txtLname;
+		JPasswordField txtrpassword;
+		txtFname=new JTextField();
+		txtLname=new JTextField();
+		txtrpassword=new JPasswordField();
+		String[] role={"<--Select-->","Admin","Accountant","Faculty","Student"};
+		JComboBox rcombo=new JComboBox(role);
+		
+		JRadioButton genderMale,genderFemale;
+		ButtonGroup bg;
+		genderMale=new JRadioButton("Male");
+		genderMale.setActionCommand("Male");
+		genderFemale=new JRadioButton("Female");
+		genderFemale.setActionCommand("Female");
+		bg=new ButtonGroup();    
+		bg.add(genderMale);bg.add(genderFemale); 
+		JButton btnRegister=new JButton("Register");
+		
+		lblFirstName.setBounds(190, 130, 190, 20);
+		lblFirstName.setFont(new Font("ARIAL", Font.BOLD,20));
+		txtFname.setBounds(300, 130, 340, 30);
+		lblLastName.setBounds(190, 210, 190, 20);
+		lblLastName.setFont(new Font("ARIAL", Font.BOLD,20));
+		txtLname.setBounds(300, 210, 340, 30);
+		lblrpassword.setBounds(190, 290, 190, 20);
+		lblrpassword.setFont(new Font("ARIAL", Font.BOLD,20));
+		txtrpassword.setBounds(300, 290, 340, 30);
+		lblGender.setBounds(190, 370, 190, 20);
+		lblGender.setFont(new Font("ARIAL", Font.BOLD,20));
+		genderMale.setBounds(300, 370, 100, 20);
+		genderMale.setFont(new Font("ARIAL", Font.BOLD,20));
+		genderFemale.setBounds(400, 370, 100, 20);
+		genderFemale.setFont(new Font("ARIAL", Font.BOLD,20));
+		lblRole.setBounds(190, 450, 190, 20);
+		lblRole.setFont(new Font("ARIAL", Font.BOLD,20));
+		rcombo.setBounds(300, 450, 120, 20);
+		rcombo.setFont(new Font("ARIAL", Font.BOLD,15));
+		btnRegister.setBounds(400, 530, 100, 30);
+		
+		nlogin.add(lblUserName);
+		nlogin.add(txtUserName);
+		nlogin.add(lblPassword);
+		nlogin.add(txtPassword);
 		nlogin.add(btnlogin);
+		nlogin.add(lblIncorrect);
+		register.add(lblFirstName);
+		register.add(txtFname);
+		register.add(lblLastName);
+		register.add(txtLname);
+		register.add(lblrpassword);
+		register.add(txtrpassword);
+		register.add(lblGender);
+		register.add(genderMale);
+		register.add(genderFemale);
+		register.add(lblRole);
+		register.add(rcombo);
+		register.add(btnRegister);
 		nlogin.setLayout(null);
+		register.setLayout(null);
 		login.add(nlogin);
+		login.add(register);
 		login.setLayout(null);
 		//Login panel design end
 		
-		//Information panel design start
+		/*//Information panel design start
 				information=new JPanel();
 				information.setBounds(50, 130, screenWidth-120, screenHeight-300);
 				information.setVisible(false);
@@ -218,7 +293,7 @@ public class Logintest{
 				lblinfo.setBounds(50, -50, 400, 250);
 				information.add(lblinfo);
 				information.setLayout(null);
-		//Information panel design end
+		//Information panel design end*/
 				
 		//Contact panel design start
 				contact=new JPanel();
@@ -248,7 +323,7 @@ public class Logintest{
 		f.add(about);
 		f.add(login);
 		f.add(footer);
-		f.add(information);
+		//f.add(information);
 		f.add(contact);
 		f.setBounds(0, 10, screenWidth, screenHeight);
 		f.setLayout(null);
@@ -258,10 +333,10 @@ public class Logintest{
 		b1.addActionListener(new ActionListener()
 				{
 			public void actionPerformed(ActionEvent e){
-				home.setVisible(false);
-				about.setVisible(true);
+				home.setVisible(true);
+				about.setVisible(false);
 				login.setVisible(false);
-				information.setVisible(false);
+				//information.setVisible(false);
 				contact.setVisible(false);
 			}
 				});
@@ -272,7 +347,7 @@ public class Logintest{
 				home.setVisible(false);
 				about.setVisible(false);
 				login.setVisible(true);
-				information.setVisible(false);
+				//information.setVisible(false);
 				contact.setVisible(false);
 			}
 		});
@@ -281,9 +356,9 @@ public class Logintest{
 		{
 			public void actionPerformed(ActionEvent e){
 				home.setVisible(false);
-				about.setVisible(false);
+				about.setVisible(true);
 				login.setVisible(false);
-				information.setVisible(true);
+				//information.setVisible(true);
 				contact.setVisible(false);
 			}
 		});
@@ -294,7 +369,7 @@ public class Logintest{
 				home.setVisible(false);
 				about.setVisible(false);
 				login.setVisible(false);
-				information.setVisible(false);
+				//information.setVisible(false);
 				contact.setVisible(true);
 			}
 		});
@@ -307,22 +382,48 @@ public class Logintest{
 					public void actionPerformed(ActionEvent e)
 					{
 						
-						lusername=tbUserName.getText();
-						lpassword=tbpassword.getText();
+						lusername=txtUserName.getText();
+						lpassword=txtPassword.getText();
 						Connectivity co=new Connectivity();
 						co.connection();
 						co.loginVerification(lusername, lpassword);
+						lblIncorrect.setText("Wrong username or password");
 					}
 						});
 		
 			//Login Button action end
+				
+			//Register button action start
+				btnRegister.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e)
+						{
+							rfname=txtFname.getText();
+							rlname=txtLname.getText();
+							rpassword=txtrpassword.getText();
+							rgender=bg.getSelection().getActionCommand();
+							rrole=(String)rcombo.getItemAt(rcombo.getSelectedIndex());
+							rusername=rfname.substring(0, 1);
+							Random random=new Random();
+							String r=new String();
+							r=Integer.toString(Math.abs(random.nextInt()));
+							r=r.substring(0, 6);
+							rusername=rusername + r + rlname ;
+														
+							Connectivity co=new Connectivity();
+							co.connection();
+							
+							co.registration(rfname, rlname, rusername, rpassword, rrole, rgender);
+						}
+					});
+			
+			//Register button action end
 		
 		//Button action ends here
 		
 		
 	}
 	
-	//slideshow action start
+	//Slideshow action start
 	
 		public  void SETImageSize(int i){
 			ImageIcon icon=new ImageIcon(list[i]);
@@ -333,6 +434,6 @@ public class Logintest{
 			
 		}
 		
-		//slideshow action end
+		//Slideshow action end
 }
 
