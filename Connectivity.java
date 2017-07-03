@@ -62,7 +62,7 @@ class Connectivity{
 			st.setString(5, rrole);
 			st.setString(6, rgender);
 			st.setString(7, "Not Approved");
-			//int i=st.executeUpdate();
+			st.executeUpdate();
 			
 		}
 		catch (SQLException e) {
@@ -70,15 +70,5 @@ class Connectivity{
 		
 	}
 	
-	public void approved()
-	{
-		try{
-			PreparedStatement st= con.prepareStatement("select * from user where username=?");
-			//st.setString(1, lusername);
-			ResultSet rs=st.executeQuery();   
-		}
-		catch(SQLException e){
-		}
-		
-	}
+	
 }
