@@ -1,0 +1,208 @@
+import java.awt.event.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.*;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+
+
+class UserLayout_accountant  {
+	
+	
+	
+	
+	UserLayout_accountant() throws ClassNotFoundException, SQLException{
+		
+		//To get screen size start
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize.getHeight();
+		screenSize.getWidth();
+		int screenHeight = screenSize.height;
+		screenHeight=screenHeight-50;
+		int screenWidth = screenSize.width;
+		//To get screen size end
+
+		JFrame userFrame=new JFrame("UserFrame");
+		userFrame.setLayout(null);
+		userFrame.setBounds(0,0,screenWidth,screenHeight);
+		userFrame.setVisible(true);
+		JLabel lblHeading=new JLabel("College Management System");
+		lblHeading.setFont(new Font("ARIAL", Font.BOLD,40));
+		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
+		lblHeading.setBounds(0, 10, screenWidth, 70);
+		userFrame.add(lblHeading);
+		
+		/*int usersx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
+		int usersy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
+		int userex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
+		int userey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y*/
+		
+		
+		
+		JPanel backuser=new JPanel();
+		backuser.setLayout(null);
+		backuser.setBounds(0,130,screenWidth,screenHeight);
+		backuser.setBackground(Color.black);
+		userFrame.add(backuser);
+		
+		JPanel btnPanel=new JPanel();
+		btnPanel.setLayout(null);
+		btnPanel.setBounds(20,71,200,screenHeight-150);
+		btnPanel.setBackground(Color.gray);	
+		backuser.add(btnPanel);
+		
+		JPanel details=new JPanel();
+		details.setLayout(null);
+		details.setBounds(250, 71, screenWidth-200,screenHeight-200);
+		details.setBackground(Color.yellow);
+		backuser.add(details);
+		
+		
+		
+		//adding buttons in userpanel
+		
+		JButton btn1=new JButton("Student Fee");
+		btn1.setBounds(40, 80, 120, 20);
+		btnPanel.add(btn1);
+		
+		
+		JPanel feePanel=new JPanel();
+		feePanel.setBounds(250, 71, screenWidth-200,screenHeight-200);
+		feePanel.setVisible(false);
+		feePanel.setBackground(Color.MAGENTA);
+		
+		JLabel lblStudentUsername=new JLabel("Enter Username of Student");
+		JTextField txtStudentUsername=new JTextField();
+		JButton btnSearch=new JButton("Search");
+		JLabel lblTotalFee=new JLabel("Total Fee");
+		JTextField txtTotalFee=new JTextField();
+		JLabel lblFeeSubmit=new JLabel("Enter Fee to submit");
+		JTextField txtFeeSubmit=new JTextField();
+		JButton btnSubmitFee=new JButton("Submit");
+		JLabel lblRemainingFee=new JLabel();
+		JLabel lblFeeSubmitted=new JLabel();
+		
+		lblStudentUsername.setBounds(50, 50, 260, 20);
+		lblStudentUsername.setFont(new Font("ARIAL",Font.BOLD,20));
+		txtStudentUsername.setBounds(320, 50, 200, 20);
+		btnSearch.setBounds(530, 50, 100, 20);
+		lblTotalFee.setBounds(50, 100, 260, 20);
+		lblTotalFee.setFont(new Font("ARIAL",Font.BOLD,20));
+		txtTotalFee.setBounds(320, 100, 200, 20);
+		lblFeeSubmit.setBounds(50, 150, 260, 20);
+		lblFeeSubmit.setFont(new Font("ARIAL",Font.BOLD,20));
+		txtFeeSubmit.setBounds(320, 150, 200, 20);
+		btnSubmitFee.setBounds(150, 200, 100, 20);
+		lblRemainingFee.setBounds(120, 250, 300, 20);
+		lblRemainingFee.setFont(new Font("ARIAL",Font.BOLD,20));
+		lblFeeSubmitted.setBounds(120, 300, 300, 20);
+		lblFeeSubmitted.setFont(new Font("ARIAL",Font.BOLD,20));
+		
+		feePanel.add(lblStudentUsername);
+		feePanel.add(txtStudentUsername);
+		feePanel.add(btnSearch);
+		feePanel.add(lblTotalFee);
+		feePanel.add(txtTotalFee);
+		feePanel.add(lblFeeSubmit);
+		feePanel.add(txtFeeSubmit);
+		feePanel.add(btnSubmitFee);
+		feePanel.add(lblRemainingFee);
+		feePanel.add(lblFeeSubmitted);
+		feePanel.setLayout(null);
+		backuser.add(feePanel);
+		
+		
+		btn1.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e){
+				details.setVisible(false);
+				feePanel.setVisible(true);
+				
+			}
+		});
+		
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Connectivity co=new Connectivity();
+				co.connection();
+				String username;
+				username=txtStudentUsername.getText();
+				try {
+					PreparedStatement ps=co.con.prepareStatement("Select * from fee where Username=?");
+					ps.setString(1, username);
+					ResultSet rs=ps.executeQuery();
+					while(rs.next())
+					{
+					
+					txtTotalFee.setText(rs.getString(3));
+					lblRemainingFee.setText("Remaining fees is "+rs.getString(4));
+					lblFeeSubmitted.setText("Fee submitted "+rs.getString(2));
+					}
+				} catch (SQLException e1) {
+				}
+				
+			}
+		});
+		
+		
+		btnSubmitFee.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				Connectivity co=new Connectivity();
+				co.connection();
+				int submitted=0,submit=0,remaining=0,total=0;
+				
+				String username;
+				username=txtStudentUsername.getText();
+				try {
+					PreparedStatement ps=co.con.prepareStatement("Select * from fee where Username=?");
+					ps.setString(1, username);
+					ResultSet rs=ps.executeQuery();
+					
+					while(rs.next())
+					{
+					total=Integer.parseInt(rs.getString(3));
+					remaining=Integer.parseInt(rs.getString(4));
+					submitted=Integer.parseInt(rs.getString(2));
+					submit=Integer.parseInt(txtFeeSubmit.getText());
+					}
+					submitted=submitted+submit;
+					remaining=total-submitted;
+					
+					PreparedStatement ps2=co.con.prepareStatement("update fee set Submitted_fee=?, Total_fee=?, Remaining_fee=? where Username=?");
+				    ps2.setString(1, Integer.toString(submitted));
+				    ps2.setString(2, Integer.toString(total));
+				    ps2.setString(3, Integer.toString(remaining));
+				    ps2.setString(4, username);
+				    ps2.executeUpdate();
+					
+				    feePanel.remove(lblRemainingFee);
+				    feePanel.remove(lblFeeSubmitted);
+				    txtFeeSubmit.setText("0");
+				    lblRemainingFee.setText("Remaining fees is "+ remaining);
+					lblFeeSubmitted.setText("Fee submitted "+ submitted);
+					feePanel.add(lblRemainingFee);
+					feePanel.add(lblFeeSubmitted);
+					feePanel.repaint();
+				    
+				} catch (SQLException e1) {
+				}
+				
+			}
+		});
+		
+	}
+
+	public static void main(String[] args) throws ClassNotFoundException, SQLException{
+		new UserLayout_accountant();
+		
+	}
+	
+	
+
+}
+
