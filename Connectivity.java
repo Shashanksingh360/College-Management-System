@@ -1,5 +1,6 @@
-import java.awt.Font;
 import java.sql.*;
+
+import javax.swing.JOptionPane;
 
 
 class Connectivity{
@@ -24,23 +25,54 @@ class Connectivity{
 	
 	public void loginVerification(String lusername,String lpassword){
 		    lusername=lusername.toLowerCase();
-		    String password=null;
+		    String password=null,Role_id=null,Admin="Admin",Accountant="Accountant",Student="Student",Faculty="Faculty";
+		    
 		try{
-			PreparedStatement st= con.prepareStatement("select password from user where username=?");
+			PreparedStatement st= con.prepareStatement("select password,Role_id from users where username=?");
 			st.setString(1, lusername);
 			ResultSet rs=st.executeQuery();   
+			
 			while(rs.next())
 			{
 			password=rs.getString(1);
+			Role_id=rs.getString(2);
 			}
 			if(lpassword.equals(password))
 			{
 				System.out.println("Successful");
-				Userpage uo=new Userpage();
-				Logintest.f.setVisible(false);
-				uo.user();
+				System.out.println(Role_id);
+				if(Role_id.equals(Admin))
+				{
+					try {
+						new Admin(lusername);
+						Logintest.f.setVisible(false);
+					} catch (ClassNotFoundException e) {
+					}
+				}
+				else if(Role_id.equals(Accountant))
+				{
+					try {
+						new Accountant(lusername);
+						Logintest.f.setVisible(false);
+					} catch (ClassNotFoundException e) {
+					}
+				}
+				else if(Role_id.equals(Student))
+				{
+					new Student(lusername);
+					Logintest.f.setVisible(false);
+				}
+				else if(Role_id.equals(Faculty))
+				{
+					new Faculty(lusername);
+					Logintest.f.setVisible(false);
+				}
+				//Userpage uo=new Userpage();
+				//Logintest.f.setVisible(false);
+				//uo.user();
 				}
 			else{
+				JOptionPane.showMessageDialog(Logintest.nlogin, "Wrong Userame or password");
 				System.out.println("Failed");
 				
 			}
