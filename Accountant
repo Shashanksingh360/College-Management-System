@@ -1,5 +1,4 @@
 import java.awt.event.*;
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,30 +9,27 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 
-class UserLayout_accountant  {
+class Accountant  {
 	
 	
 	
 	
-	UserLayout_accountant() throws ClassNotFoundException, SQLException{
+	Accountant(String lusername) throws ClassNotFoundException, SQLException{
 		
 		//To get screen size start
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		screenSize.getHeight();
 		screenSize.getWidth();
-		int screenHeight = screenSize.height;
-		screenHeight=screenHeight-50;
-		int screenWidth = screenSize.width;
+		
 		//To get screen size end
 
-		JFrame userFrame=new JFrame("UserFrame");
+		JFrame userFrame=new JFrame("Accountant");
 		userFrame.setLayout(null);
-		userFrame.setBounds(0,0,screenWidth,screenHeight);
-		userFrame.setVisible(true);
+		userFrame.setBounds(0,0,1366,718);
 		JLabel lblHeading=new JLabel("College Management System");
 		lblHeading.setFont(new Font("ARIAL", Font.BOLD,40));
 		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeading.setBounds(0, 10, screenWidth, 70);
+		lblHeading.setBounds(0, 10, 1366, 70);
 		userFrame.add(lblHeading);
 		
 		/*int usersx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
@@ -45,21 +41,21 @@ class UserLayout_accountant  {
 		
 		JPanel backuser=new JPanel();
 		backuser.setLayout(null);
-		backuser.setBounds(0,130,screenWidth,screenHeight);
+		backuser.setBounds(0,80,1366,588);
 		backuser.setBackground(Color.black);
 		userFrame.add(backuser);
 		
 		JPanel btnPanel=new JPanel();
 		btnPanel.setLayout(null);
-		btnPanel.setBounds(20,71,200,screenHeight-150);
+		btnPanel.setBounds(20,10,200,568);
 		btnPanel.setBackground(Color.gray);	
 		backuser.add(btnPanel);
 		
-		JPanel details=new JPanel();
-		details.setLayout(null);
-		details.setBounds(250, 71, screenWidth-200,screenHeight-200);
-		details.setBackground(Color.yellow);
-		backuser.add(details);
+//		JPanel details=new JPanel();
+//		details.setLayout(null);
+//		details.setBounds(230, 10, 1110,568);
+//		details.setBackground(Color.yellow);
+//		backuser.add(details);
 		
 		
 		
@@ -71,8 +67,8 @@ class UserLayout_accountant  {
 		
 		
 		JPanel feePanel=new JPanel();
-		feePanel.setBounds(250, 71, screenWidth-200,screenHeight-200);
-		feePanel.setVisible(false);
+		feePanel.setBounds(230, 10, 1110,568);
+		//feePanel.setVisible(false);
 		feePanel.setBackground(Color.MAGENTA);
 		
 		JLabel lblStudentUsername=new JLabel("Enter Username of Student");
@@ -115,11 +111,13 @@ class UserLayout_accountant  {
 		feePanel.setLayout(null);
 		backuser.add(feePanel);
 		
+		userFrame.setVisible(true);
+		
 		
 		btn1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				details.setVisible(false);
+				//details.setVisible(false);
 				feePanel.setVisible(true);
 				
 			}
@@ -130,7 +128,7 @@ class UserLayout_accountant  {
 				Connectivity co=new Connectivity();
 				co.connection();
 				String username;
-				username=txtStudentUsername.getText();
+				username=txtStudentUsername.getText().toLowerCase();
 				try {
 					PreparedStatement ps=co.con.prepareStatement("Select * from fee where Username=?");
 					ps.setString(1, username);
@@ -157,7 +155,7 @@ class UserLayout_accountant  {
 				int submitted=0,submit=0,remaining=0,total=0;
 				
 				String username;
-				username=txtStudentUsername.getText();
+				username=txtStudentUsername.getText().toLowerCase();
 				try {
 					PreparedStatement ps=co.con.prepareStatement("Select * from fee where Username=?");
 					ps.setString(1, username);
@@ -165,7 +163,7 @@ class UserLayout_accountant  {
 					
 					while(rs.next())
 					{
-					total=Integer.parseInt(rs.getString(3));
+					total=Integer.parseInt(txtTotalFee.getText());
 					remaining=Integer.parseInt(rs.getString(4));
 					submitted=Integer.parseInt(rs.getString(2));
 					submit=Integer.parseInt(txtFeeSubmit.getText());
@@ -197,10 +195,10 @@ class UserLayout_accountant  {
 		
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException{
-		new UserLayout_accountant();
-		
-	}
+//	public static void main(String[] args) throws ClassNotFoundException, SQLException{
+//		new Accountant("abc");
+//		
+//	}
 	
 	
 
