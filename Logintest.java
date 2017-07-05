@@ -7,8 +7,8 @@ import javax.swing.*;
 public class Logintest{
 
 	static JFrame f;
-	JPanel home,about,login,information,contact,footer;
-	
+	JPanel home,courses,login,information,contact,footer;
+	static JPanel nlogin;
 	
 	String lusername,lpassword,rfname,rlname,rpassword,rrole,rgender,rusername;
 	
@@ -38,40 +38,40 @@ public class Logintest{
 	{
 		
 		//To get screen size start
-				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-				screenSize.getHeight();
-				screenSize.getWidth();
-				int screenHeight = screenSize.height;
-				screenHeight=screenHeight-50;
-				int screenWidth = screenSize.width;
+//				Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//				screenSize.getHeight();
+//				screenSize.getWidth();
+//				int screenHeight = screenSize.height;
+//				screenHeight=910;//screenHeight-50;
+//				int screenWidth = screenSize.width;
 		//To get screen size end
 				
 		f=new JFrame("College Management System");
 		JLabel lblHeading=new JLabel("College Management System");
 		lblHeading.setFont(new Font("ARIAL", Font.BOLD,40));
 		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
-		lblHeading.setBounds(0, 10, screenWidth, 70);
+		lblHeading.setBounds(0, 10, 1366, 70);
 		f.add(lblHeading);
 		
 		//Buttons Design start
 		
-		int btnWidth=(screenWidth-120)/4;
+		//int btnWidth=397;//(screenWidth-120)/4;
 		
 		JButton b1=new JButton("Home");
 		b1.setFont(new Font("ARIAL", Font.BOLD, 20));
-		b1.setBounds(50, 80, btnWidth, 40);
+		b1.setBounds(50, 80, 312, 40);
 		
 		JButton b2=new JButton("Login/Register");
 		b2.setFont(new Font("ARIAL", Font.BOLD, 20));
-		b2.setBounds(50+btnWidth, 80, btnWidth, 40);
+		b2.setBounds(362, 80, 312, 40);
 		
-		JButton b3=new JButton("About");
+		JButton b3=new JButton("Courses");
 		b3.setFont(new Font("ARIAL", Font.BOLD, 20));
-		b3.setBounds(50+2*btnWidth, 80, btnWidth, 40);
+		b3.setBounds(674, 80, 312, 40);
 		
 		JButton b4=new JButton("Contact us");
 		b4.setFont(new Font("ARIAL", Font.BOLD, 20));
-		b4.setBounds(50+3*btnWidth, 80, btnWidth, 40);
+		b4.setBounds(986, 80, 312, 40);
 		
 		f.add(b1);
 		f.add(b2);
@@ -81,14 +81,13 @@ public class Logintest{
 		
 		//Home panel design Start
 		home=new JPanel();
-		home.setBounds(50, 130, screenWidth-120, screenHeight-300);
+		home.setBounds(50, 130, 1246, 468);
 		home.setBackground(Color.BLUE);
 		home.setLayout(null);
-		
 		// slideshow code start
 		
 				pic=new JLabel();
-				pic.setBounds(0, 0, screenWidth-120, screenHeight-300);
+				pic.setBounds(0, 0, 1246, 468);
 				SETImageSize(1);
 				
 				tm=new Timer(2000,new ActionListener(){
@@ -112,108 +111,61 @@ public class Logintest{
 			    
 		//Home panel design end
 		
-		//About panel design start
+		//Courses panel design start
 		
-			    about=new JPanel();
-				about.setBounds(50, 130, screenWidth-120, screenHeight-300);
-				about.setVisible(false);
-				about.setBackground(Color.cyan);
-				about.setLayout(new GridBagLayout());   
-
-				int nr=(screenWidth-120)/23;
-				int nc=(screenHeight-300)/12;
-		        JTextArea txtArea=new JTextArea(32,147);
-				txtArea.setText( "ABOUT US"
-
-
-		+"Learn through Academics & beyond. Build Strong Virtues.Think Independently. Get Placed."
-		+ "Being ranked 99th by National Institutional Ranking Framework, MHRD, Govt. of India; Noida Institute of Engineering & Technology, "
-		+ "Greater Noida is one of the India's elite Engineering & Management Institutes. "
-		+ "A self-financed Institute with a sprawling area of 16.9 acres of lush green campus, NIET is developing as a Centre of Excellence,"
-		+ " imparting technical education and generating competent professionals with a high degree of credibility, integrity and "
-		+ "ethical standards."
-		+"We are thought leaders with an unquenchable thirst for learning and a devotion to world class research and teaching. "
-		+ "The Institute excels in all the parameters earmarked by the AICTE and Dr. A.P.J. Abdul Kalam Technical University, Lucknow."
-		+ "VISION STATEMENT"
-
-		+"To be an institute of academic excellence in the field of education, with the future plan of becoming a deemed university, earn name & hence win the faith of the society."
-
-		+"MISSION STATEMENT"
-
-		+"To impart to its students high quality education, develop their skills, broaden their mental horizon, and nurture them into competent & talented professionals to meet the challenges of the new millennium."
-
-		+"QUALITY POLICY"
-
-		+"Our policy is to develop a class of highly skilled professionals who can cater to intellectually and technologically changing environments. This is achieved through the participative efforts of the management, staff, students and parents."
-
-
-		+"ABOUT INSTITUTE"
-
-
-		 +"NIET is one of the premier Engineering and Management institutes of India's National Capital Region (NCR). It was established by eminent visionaries, responsible for setting up City Educational & Social Welfare Society of Meerut, with a Vision to provide value driven education of global dimensions. The Institute is managed by City Educational & Social Welfare Society, which runs several prestigious education and health organizations, viz. NIET (Noida Institute of Engineering & Technology), MIET (Meerut Institute of Engineering & Technology), CVPS (City Vocational Public School), ACTS C- DAC, Pyramid Finishing School, Dayanand Nursing Home, Chandra Sen Charitable Hospital & Om Diagnostic Center. Noida Institute of Engineering and Technology, a self financed institute, offering high standard quality education to students from all corners of the country, is situated in Greater Noida (a hub of global MNCs.). The institute has a sprawling area of 13.90 acres and lush green ambiance all around. It is developing as the Center of Excellence imparting technical education and generating competent professionals with a high degree of credibility, integrity and ethical standards. We aim at recognizing, respecting and nurturing the creative potential of each student."
-
-
-
-		+"NIET IN FOCUS" 
-
-		+"Career Starts Here" +"Education at NIET is focused on equipping students with the critical skills they need to acquire in today's globalized world. Whether they choose to be entrepreneurs or build careers with leading organizations, their span at NIET gets them started on the way to their goals. That's why we say career Starts here. What truly sets NIET apart? Our unique 360 degree approach that builds synergy between education and industry and ensures that our programs are completely in sync with the contemporary, economic context." 
-		+"At NIET, students get an environment that opens up a new world of opportunities, helps them to make the right choices and ensure that they are ready to start out on their own. They also benefit from a strong, global, alumni network. That's why we say that young people who come to NIET leave with much more than a degree- They take with them a valuable asset that they can count on, all their lives." 
-
-
-		+"At NIET, fires are ignited every day, by the hour. The life and blood of NIET is its faculty base. The faculty is undoubtedly the nucleus around which the entire gamut of training activities revolves. Our faculty is dedicated to an integrated curriculum with a global focus, team teaching and leadership woven seamlessly. Inputs from students and corporate executives, along with the faculty experience are a sound marriage of ideas and impact. Innovative research, real world experience and effective teaching come together and create a storm of intense thought process." 
-
-		+"What is also admirable at NIET is the vibrant interaction among the faculty and students, creating a healthy learning experience inspiring out-of-the-box thinking and honing sharp intellect. These interactions foster an entrepreneurial mind-set focused on identifying and capturing opportunity; the stuff of which leaders are made.");
-
+			    courses=new JPanel();
+				courses.setBounds(50, 130, 1246, 468);
+				courses.setVisible(false);
+				//courses.setBackground(Color.cyan);
+				courses.setLayout(null);   
 				
-		JScrollPane scroll = new JScrollPane(txtArea,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-			
-		txtArea.setFont(new Font("Serif", Font.ITALIC, 16));
-		txtArea.setLineWrap(true);
-		txtArea.setWrapStyleWord(true);
-		txtArea.setEditable(false); // set textArea non-editable
-
-		scroll.setBounds(screenWidth-155,10,15, screenHeight-320);  
-
-		about.add(scroll);
-		txtArea.setVisible(true);
-		//About panel design end 
+				ImageIcon imgCourses = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/Courses.jpg");
+				JLabel lblCourses = new JLabel("", imgCourses, JLabel.CENTER);
+				courses.add(lblCourses);
+				lblCourses.setBackground(Color.BLACK);
+			    lblCourses.setBounds(10, 10, 1226, 448);
+		//Courses panel design end 
 		
 		
 		//Login panel design start
 		login=new JPanel();
-		login.setBounds(50, 130, screenWidth-120, screenHeight-300);
+		login.setBounds(50, 130, 1246, 468);
 		login.setVisible(false);
 		login.setBackground(Color.DARK_GRAY);
-		JPanel nlogin=new JPanel();
+		nlogin=new JPanel();
 		JButton btnlogin=new JButton("Login");
-		btnlogin.setBounds(400, 400, 80, 30);
-		int nloginsx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
-		int nloginsy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
-		int nloginex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
-		int nloginey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y
+		btnlogin.setBounds(130, 250, 80, 30);
+		int nloginsx=20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
+		int nloginsy=20;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
+		int nloginex=600;//(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
+		int nloginey=428;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y
 		nlogin.setBounds(nloginsx, nloginsy, nloginex, nloginey);
-		nlogin.setBackground(Color.LIGHT_GRAY);
+		nlogin.setBackground(Color.WHITE);
 		JLabel lblUserName=new JLabel("Username");
-		lblUserName.setBounds(190, 220, 190, 20);
+		lblUserName.setBounds(10, 100, 190, 20);
 		lblUserName.setFont(new Font("ARIAL", Font.BOLD,20));
 		JLabel lblPassword=new JLabel("Password");
-		lblPassword.setBounds(190, 300, 190, 20);
+		lblPassword.setBounds(10, 170, 190, 20);
 		lblPassword.setFont(new Font("ARIAL", Font.BOLD,20));
 		JTextField txtUserName=new JTextField();
-		txtUserName.setBounds(300, 220, 340, 27);
+		txtUserName.setBounds(120, 100, 200, 27);
 		JPasswordField txtPassword=new JPasswordField();
-		txtPassword.setBounds(300, 300, 340, 27);
-		JLabel lblIncorrect;
-		lblIncorrect=new JLabel();
-		lblIncorrect.setFont(new Font("ARIAL",Font.BOLD,15));
-		lblIncorrect.setBounds(330, 450, 220, 20);
+		txtPassword.setBounds(120, 170, 200, 27);
+		
+		
+		//Code for Adding Image on nlogin panel
+				ImageIcon image = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms5.jpg");
+				JLabel label = new JLabel("", image, JLabel.LEFT);
+				nlogin.add(label);
+			    label.setBounds(330, 80, 210, 200);
 		
 		JPanel register=new JPanel();
-		int rsx=(50+screenWidth-180)/2-60+40;//125;//(50+screenWidth-180)/2-60+40;
-		int rsy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//20;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;
-		int rex=(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;//910;//(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;
-		int rey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//683;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;
+		int rsx=630;//(50+screenWidth-180)/2-60+40;//125;//(50+screenWidth-180)/2-60+40;
+		int rsy=20;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//20;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;
+		int rex=595;//(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;//910;//(50+screenWidth-180)/2-60+30+nloginex-nloginsx-770;
+		int rey=428;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//683;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;
 		register.setBounds(rsx,rsy, rex, rey);
+		register.setBackground(Color.WHITE);
 		JLabel lblFirstName,lblLastName,lblGender,lblRole,lblrpassword;
 		lblFirstName=new JLabel("First Name");
 		lblLastName=new JLabel("Last Name");
@@ -226,6 +178,7 @@ public class Logintest{
 		txtLname=new JTextField();
 		txtrpassword=new JPasswordField();
 		String[] role={"<--Select-->","Admin","Accountant","Faculty","Student"};
+		@SuppressWarnings({ "unchecked", "rawtypes" })
 		JComboBox rcombo=new JComboBox(role);
 		
 		JRadioButton genderMale,genderFemale;
@@ -238,33 +191,40 @@ public class Logintest{
 		bg.add(genderMale);bg.add(genderFemale); 
 		JButton btnRegister=new JButton("Register");
 		
-		lblFirstName.setBounds(190, 130, 190, 20);
+		lblFirstName.setBounds(210, 40, 190, 20);
 		lblFirstName.setFont(new Font("ARIAL", Font.BOLD,20));
-		txtFname.setBounds(300, 130, 340, 30);
-		lblLastName.setBounds(190, 210, 190, 20);
+		txtFname.setBounds(320, 40, 200, 30);
+		lblLastName.setBounds(210, 90, 190, 20);
 		lblLastName.setFont(new Font("ARIAL", Font.BOLD,20));
-		txtLname.setBounds(300, 210, 340, 30);
-		lblrpassword.setBounds(190, 290, 190, 20);
+		txtLname.setBounds(320, 90, 200, 30);
+		lblrpassword.setBounds(210, 140, 190, 20);
 		lblrpassword.setFont(new Font("ARIAL", Font.BOLD,20));
-		txtrpassword.setBounds(300, 290, 340, 30);
-		lblGender.setBounds(190, 370, 190, 20);
+		txtrpassword.setBounds(320, 140, 200, 30);
+		lblGender.setBounds(210, 190, 190, 20);
 		lblGender.setFont(new Font("ARIAL", Font.BOLD,20));
-		genderMale.setBounds(300, 370, 100, 20);
+		genderMale.setBounds(320, 190, 100, 20);
 		genderMale.setFont(new Font("ARIAL", Font.BOLD,20));
-		genderFemale.setBounds(400, 370, 100, 20);
+		genderFemale.setBounds(420, 190, 100, 20);
 		genderFemale.setFont(new Font("ARIAL", Font.BOLD,20));
-		lblRole.setBounds(190, 450, 190, 20);
+		lblRole.setBounds(210, 240, 190, 20);
 		lblRole.setFont(new Font("ARIAL", Font.BOLD,20));
-		rcombo.setBounds(300, 450, 120, 20);
+		rcombo.setBounds(320, 240, 120, 20);
 		rcombo.setFont(new Font("ARIAL", Font.BOLD,15));
-		btnRegister.setBounds(400, 530, 100, 30);
+		btnRegister.setBounds(380, 290, 100, 30);
+		
+		//Adding Image for registeration panel--->
+		
+				ImageIcon image2 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms6.jpg");
+				JLabel label2 = new JLabel("", image2, JLabel.LEFT);
+				register.add(label2);
+			    label2.setBounds(10, 80, 210, 200);
+		
 		
 		nlogin.add(lblUserName);
 		nlogin.add(txtUserName);
 		nlogin.add(lblPassword);
 		nlogin.add(txtPassword);
 		nlogin.add(btnlogin);
-		nlogin.add(lblIncorrect);
 		register.add(lblFirstName);
 		register.add(txtFname);
 		register.add(lblLastName);
@@ -297,35 +257,56 @@ public class Logintest{
 				
 		//Contact panel design start
 				contact=new JPanel();
-				contact.setBounds(50, 130, screenWidth-120, screenHeight-300);
+				contact.setBounds(50, 130, 1246, 468);
 				contact.setVisible(false);
 				contact.setBackground(Color.WHITE);
-				JLabel lblcontact=new JLabel("Contact us will be here");
-				lblcontact.setBounds(50, -50, 400, 250);
-				contact.add(lblcontact);
 				contact.setLayout(null);
+				
+				ImageIcon image3 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms8.jpg");
+				JLabel label3 = new JLabel("", image3, JLabel.LEFT);
+				contact.add(label3);
+			    label3.setBounds(50, 50, 220, 225);
+				
+			    
+				ImageIcon image4 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms9.jpg");
+				JLabel label4 = new JLabel("", image4, JLabel.LEFT);
+				contact.add(label4);
+			    label4.setBounds(350, 50, 220, 225);
+			    
+			    
+				ImageIcon image5 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms10.jpg");
+				JLabel label5 = new JLabel("", image5, JLabel.LEFT);
+				contact.add(label5);
+			    label5.setBounds(650, 40, 220, 225);
+			    
+			    
+				ImageIcon image6 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms11.png");
+				JLabel label6= new JLabel("", image6, JLabel.LEFT);
+				contact.add(label6);
+			    label6.setBounds(950, 50, 220, 225);
 		//Contact panel design end
 		
 		//Footer panel design start
 		footer=new JPanel();
-		footer.setBounds(50 ,screenHeight-165, screenWidth-120, 100);
-		JLabel lblFooter=new JLabel("Footer will be here");
-		footer.setBackground(Color.GREEN);
-		lblFooter.setBounds(50, 0, 400, 100);
-		footer.add(lblFooter);
+		footer.setBounds(50 ,603, 1246, 60);
 		footer.setLayout(null);
+		
+		ImageIcon image7= new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms12.jpg");
+		JLabel label7 = new JLabel("", image7, JLabel.LEFT);
+		footer.add(label7);
+	    label7.setBounds(0 ,0, 1350, 60);
 		//Footer panel design end
 		
 		
 		
 		
 		f.add(home);
-		f.add(about);
+		f.add(courses);
 		f.add(login);
 		f.add(footer);
 		//f.add(information);
 		f.add(contact);
-		f.setBounds(0, 10, screenWidth, screenHeight);
+		f.setBounds(0, 10, 1366, 718);
 		f.setLayout(null);
 		f.setVisible(true);
 		
@@ -334,7 +315,7 @@ public class Logintest{
 				{
 			public void actionPerformed(ActionEvent e){
 				home.setVisible(true);
-				about.setVisible(false);
+				courses.setVisible(false);
 				login.setVisible(false);
 				//information.setVisible(false);
 				contact.setVisible(false);
@@ -345,7 +326,7 @@ public class Logintest{
 		{
 			public void actionPerformed(ActionEvent e){
 				home.setVisible(false);
-				about.setVisible(false);
+				courses.setVisible(false);
 				login.setVisible(true);
 				//information.setVisible(false);
 				contact.setVisible(false);
@@ -356,7 +337,7 @@ public class Logintest{
 		{
 			public void actionPerformed(ActionEvent e){
 				home.setVisible(false);
-				about.setVisible(true);
+				courses.setVisible(true);
 				login.setVisible(false);
 				//information.setVisible(true);
 				contact.setVisible(false);
@@ -367,7 +348,7 @@ public class Logintest{
 		{
 			public void actionPerformed(ActionEvent e){
 				home.setVisible(false);
-				about.setVisible(false);
+				courses.setVisible(false);
 				login.setVisible(false);
 				//information.setVisible(false);
 				contact.setVisible(true);
@@ -379,15 +360,17 @@ public class Logintest{
 		
 				btnlogin.addActionListener(new ActionListener()
 						{
+					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e)
 					{
 						
-						lusername=txtUserName.getText();
+						lusername=txtUserName.getText().toLowerCase();
 						lpassword=txtPassword.getText();
 						Connectivity co=new Connectivity();
 						co.connection();
 						co.loginVerification(lusername, lpassword);
-						lblIncorrect.setText("Wrong username or password");
+						
+						
 					}
 						});
 		
@@ -395,8 +378,9 @@ public class Logintest{
 				
 			//Register button action start
 				btnRegister.addActionListener(new ActionListener(){
+					@SuppressWarnings("deprecation")
 					public void actionPerformed(ActionEvent e)
-						{
+						{	
 							rfname=txtFname.getText();
 							rlname=txtLname.getText();
 							rpassword=txtrpassword.getText();
@@ -408,11 +392,12 @@ public class Logintest{
 							r=Integer.toString(Math.abs(random.nextInt()));
 							r=r.substring(0, 6);
 							rusername=rusername + r + rlname ;
-														
+							rusername=rusername.toLowerCase();							
 							Connectivity co=new Connectivity();
 							co.connection();
 							
 							co.registration(rfname, rlname, rusername, rpassword, rrole, rgender);
+							JOptionPane.showMessageDialog(register, "Registered successfully, Your username is "+ rusername);
 						}
 					});
 			
