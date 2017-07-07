@@ -11,9 +11,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 
 class Admin  {
@@ -25,11 +23,7 @@ class Admin  {
 	
 	Admin(String lusername) throws ClassNotFoundException, SQLException{
 	
-		//To get screen size start
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		screenSize.getHeight();
-		screenSize.getWidth();
-		
+
 		//To get screen size end
 
 		JFrame userFrame=new JFrame("Admin");
@@ -41,12 +35,6 @@ class Admin  {
 		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHeading.setBounds(0, 10, 1366, 70);
 		userFrame.add(lblHeading);
-		
-		/*int usersx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
-		int usersy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
-		int userex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
-		int userey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y*/
-		
 		
 		JPanel backuser=new JPanel();
 		backuser.setLayout(null);
@@ -60,31 +48,25 @@ class Admin  {
 		btnPanel.setBackground(Color.gray);	
 		backuser.add(btnPanel);
 	
-		
-		
-//		JPanel details=new JPanel();
-//		details.setLayout(null);
-//		details.setBounds(230, 10, 1110,568);
-//		details.setBackground(Color.yellow);
-//		backuser.add(details);
+
 		
 		//adding buttons in btnPanel
 		
 		JButton btn1=new JButton("Approval");
-		btn1.setBounds(40, 80, 120, 20);
+		btn1.setBounds(20, 80, 140, 20);
 		btnPanel.add(btn1);
 		
 
 		JButton btn2=new JButton("Add Faculty");
-		btn2.setBounds(40, 120, 120, 20);
+		btn2.setBounds(20, 120, 140, 20);
 		btnPanel.add(btn2);
 		
 		JButton btn3=new JButton("Add Student");
-		btn3.setBounds(40, 160, 120, 20);
+		btn3.setBounds(20, 160, 140, 20);
 		btnPanel.add(btn3);
 		
 		JButton btn4=new JButton("Add Account");
-		btn4.setBounds(40, 200, 120, 20);
+		btn4.setBounds(20, 200, 140, 20);
 		btnPanel.add(btn4);
 		
 		//btnPanel add button end
@@ -113,7 +95,7 @@ class Admin  {
 		
 		Class.forName("com.mysql.jdbc.Driver"); 
 		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/CMS?useSSL=false","root","shashank");
-		PreparedStatement ps = con.prepareStatement("select * from user");
+		PreparedStatement ps = con.prepareStatement("select * from register");
 		ResultSet rs = ps.executeQuery();
 		while(rs.next())
 		{
@@ -138,9 +120,6 @@ class Admin  {
 		Add_faculty_panel.setBounds(230, 10, 1110,568);
 		Add_faculty_panel.setVisible(false);
 		Add_faculty_panel.setBackground(Color.BLUE);
-		JLabel lblinfo1=new JLabel("Add faculty will be here");
-		lblinfo1.setBounds(50, -50, 400, 250);
-		Add_faculty_panel.add(lblinfo1);
 		Add_faculty_panel.setLayout(null);
 		
 		
@@ -149,9 +128,6 @@ class Admin  {
 		Add_student_panel.setBounds(230, 10, 1110,568);
 		Add_student_panel.setVisible(false);
 		Add_student_panel.setBackground(Color.CYAN);
-		JLabel lblinfo2=new JLabel("Add student will be here");
-		lblinfo2.setBounds(50, -50, 400, 250);
-		Add_student_panel.add(lblinfo2);
 		Add_student_panel.setLayout(null);
 		
 		
@@ -160,9 +136,6 @@ class Admin  {
 		Add_account_panel.setBounds(230, 10, 1110,568);
 		Add_account_panel.setVisible(false);
 		Add_account_panel.setBackground(Color.ORANGE);
-		JLabel lblinfo4=new JLabel("Add account will be here");
-		lblinfo2.setBounds(50, -50, 400, 250);
-		Add_account_panel.add(lblinfo4);
 		Add_account_panel.setLayout(null);
 		
 		
@@ -171,10 +144,7 @@ class Admin  {
 		backuser.add(Add_student_panel);
 		backuser.add(Add_faculty_panel);
 		
-		/*JButton btn5=new JButton("Button five");
-		btn5.setBounds(40, 240, 100, 20);
-		user.add(btn5);
-		*/
+		
 		//designing of add faculty panel
 				JLabel lblFirstName,lblLastName,lblrpassword,lblGender;
 				lblFirstName=new JLabel("First Name");
@@ -216,7 +186,7 @@ class Admin  {
 				genderFemale.setBounds(400, 370, 100, 20);
 				genderFemale.setFont(new Font("ARIAL", Font.BOLD,20));
 				
-				btnRegister_faculty.setBounds(190, 20, 190, 30);
+				btnRegister_faculty.setBounds(300, 450, 190, 30);
 				
 				Add_faculty_panel.add(btnRegister_faculty);
 				Add_faculty_panel.add(genderFemale);
@@ -272,7 +242,7 @@ class Admin  {
 				sgenderMale.setFont(new Font("ARIAL", Font.BOLD,20));
 				sgenderFemale.setBounds(400, 370, 100, 20);
 				sgenderFemale.setFont(new Font("ARIAL", Font.BOLD,20));
-				btnRegister_student.setBounds(190, 20, 190, 30);
+				btnRegister_student.setBounds(300, 450, 190, 30);
 				
 				
 				
@@ -334,7 +304,7 @@ class Admin  {
 				agenderMale.setFont(new Font("ARIAL", Font.BOLD,20));
 				agenderFemale.setBounds(400, 370, 100, 20);
 				agenderFemale.setFont(new Font("ARIAL", Font.BOLD,20));
-				btnRegister_accountant.setBounds(190, 20, 190, 30);
+				btnRegister_accountant.setBounds(300, 450, 190, 30);
 				
 				
 				
@@ -362,8 +332,6 @@ class Admin  {
 		btn1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
-				//about.setVisible(false);
 				Approval_panel.setVisible(true);
 				Add_faculty_panel.setVisible(false);
 				Add_student_panel.setVisible(false);
@@ -375,8 +343,6 @@ class Admin  {
 		btn2.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
-				//about.setVisible(false);
 				Approval_panel.setVisible(false);
 				Add_faculty_panel.setVisible(true);
 				Add_student_panel.setVisible(false);
@@ -389,8 +355,6 @@ class Admin  {
 		btn3.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
-				//about.setVisible(false);
 				Approval_panel.setVisible(false);
 				Add_faculty_panel.setVisible(false);
 				Add_student_panel.setVisible(true);
@@ -403,8 +367,7 @@ class Admin  {
 		btn4.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
-				//about.setVisible(false);
+				
 				Approval_panel.setVisible(false);
 				Add_faculty_panel.setVisible(false);
 				Add_student_panel.setVisible(false);
@@ -427,7 +390,8 @@ class Admin  {
 					String gender=null;
 					String role="Student";
 					
-					ps = con.prepareStatement("select * from user where username=?");
+					
+					ps = con.prepareStatement("select * from register where username=?");
 					ps.setString(1, username);
 					ResultSet rs = ps.executeQuery();
 					while(rs.next())
@@ -457,10 +421,30 @@ class Admin  {
 					ps.setString(1, uname);
 					ps.executeUpdate();
 					}
-					ps=con.prepareStatement("delete from user where username=?");
+					ps=con.prepareStatement("delete from register where username=?");
 					ps.setString(1, username);
 					ps.executeUpdate();
 					
+					try {
+						Class.forName("com.mysql.jdbc.Driver");
+						con=DriverManager.getConnection("jdbc:mysql://localhost:3306/CMS?useSSL=false","root","shashank");
+						PreparedStatement ps1 = con.prepareStatement("select * from register");
+						ResultSet rs1 = ps1.executeQuery();
+						model.setRowCount(0);
+						while(rs1.next())
+						{
+						fname = rs1.getString(1);
+						lname = rs1.getString(2);
+						uname = rs1.getString(3);
+						password = rs1.getString(4);
+						rid=rs1.getString(5);
+						gender=rs1.getString(6);
+						model.addRow(new Object[]{fname, lname, uname, password, rid, gender});
+						}
+					} catch (ClassNotFoundException e1) {
+					} 
+				
+						Approval_panel.repaint();
 					
 				} catch (SQLException e1) {	
 				}
@@ -574,10 +558,7 @@ class Admin  {
 		
 	}
 
-//	public static void main(String[] args) throws ClassNotFoundException, SQLException{
-//		new Admin("abc");
-//		
-//	}
+
 	
 	
 
