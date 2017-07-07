@@ -4,9 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.*;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 
 class Accountant  {
@@ -15,13 +13,6 @@ class Accountant  {
 	
 	
 	Accountant(String lusername) throws ClassNotFoundException, SQLException{
-		
-		//To get screen size start
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		screenSize.getHeight();
-		screenSize.getWidth();
-		
-		//To get screen size end
 
 		JFrame userFrame=new JFrame("Accountant");
 		userFrame.setLayout(null);
@@ -31,11 +22,6 @@ class Accountant  {
 		lblHeading.setHorizontalAlignment(SwingConstants.CENTER);
 		lblHeading.setBounds(0, 10, 1366, 70);
 		userFrame.add(lblHeading);
-		
-		/*int usersx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
-		int usersy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
-		int userex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
-		int userey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y*/
 		
 		
 		
@@ -51,24 +37,15 @@ class Accountant  {
 		btnPanel.setBackground(Color.gray);	
 		backuser.add(btnPanel);
 		
-//		JPanel details=new JPanel();
-//		details.setLayout(null);
-//		details.setBounds(230, 10, 1110,568);
-//		details.setBackground(Color.yellow);
-//		backuser.add(details);
-		
-		
-		
 		//adding buttons in userpanel
 		
 		JButton btn1=new JButton("Student Fee");
-		btn1.setBounds(40, 80, 120, 20);
+		btn1.setBounds(20, 80, 140, 20);
 		btnPanel.add(btn1);
 		
 		
 		JPanel feePanel=new JPanel();
 		feePanel.setBounds(230, 10, 1110,568);
-		//feePanel.setVisible(false);
 		feePanel.setBackground(Color.MAGENTA);
 		
 		JLabel lblStudentUsername=new JLabel("Enter Username of Student");
@@ -117,7 +94,6 @@ class Accountant  {
 		btn1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
 				feePanel.setVisible(true);
 				
 			}
@@ -194,11 +170,6 @@ class Accountant  {
 		});
 		
 	}
-
-//	public static void main(String[] args) throws ClassNotFoundException, SQLException{
-//		new Accountant("abc");
-//		
-//	}
 	
 	
 
