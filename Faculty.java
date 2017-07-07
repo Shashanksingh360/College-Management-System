@@ -1,7 +1,5 @@
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -18,14 +16,7 @@ class Faculty{
 	String sUsername;
 	
 	Faculty(String lusername){
-		//To get screen size start
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		screenSize.getHeight();
-		screenSize.getWidth();
-		int screenHeight = screenSize.height;
-		screenHeight=screenHeight-50;
-		int screenWidth = screenSize.width;
-		//To get screen size end
+
 
 		JFrame userFrame=new JFrame("Faculty");
 		userFrame.setLayout(null);
@@ -36,10 +27,6 @@ class Faculty{
 		lblHeading.setBounds(0, 10, 1366, 70);
 		userFrame.add(lblHeading);
 		
-		/*int usersx=(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20;//20;//(50+screenWidth-120)/2-(50+screenWidth-120)/4-(50+screenWidth-120)/4+20; //Start X
-		int usersy=(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20;//465;//(130+screenHeight-300)/2-(130+screenHeight-300)/4-(130+screenHeight-300)/4+20; //Start Y
-		int userex=(50+screenWidth-180)/2-60;//835;//(50+screenWidth-180)/2-60; //End X
-		int userey=(130+screenHeight-300)/2+(130+screenHeight-300)/3-33;//110;//(130+screenHeight-300)/2+(130+screenHeight-300)/3-33; //End Y*/
 		
 	
 		JPanel backuser=new JPanel();
@@ -58,30 +45,7 @@ class Faculty{
 		
 		
 		//label for welcome
-		
-		
-		
-		
-			
-/*	JLabel wellabel=new JLabel("Welcome");
-		wellabel.setFont(new Font("ARIAL", Font.ITALIC,20));
-		//wellabel.setHorizontalAlignment(SwingConstants.LEFT);
-		wellabel.setBounds(25,150,50,200);
-		wellabel.setForeground(Color.YELLOW);
-		backuser.add(wellabel);     */	
-		
-		
-//Panel for Details -->		
-//		JPanel details=new JPanel();
-//		details.setLayout(null);
-//		details.setBounds(230, 10, 1110,568);
-//		details.setBackground(Color.yellow);
-//		backuser.add(details);
-//		details.setVisible(true);
-//		
-		
-		
-		
+
 		
 //adding buttons in userpanel
 			
@@ -92,7 +56,7 @@ class Faculty{
 			
 
 			JButton btn2=new JButton("Add Marks");
-			btn2.setBounds(40, 120, 100, 20);
+			btn2.setBounds(20, 120, 140, 20);
 			btnPanel.add(btn2);
 			
 			
@@ -114,30 +78,30 @@ class Faculty{
 	//Details Content 	
 		
 		//Label for First name-->
-		JLabel fname=new JLabel("FName:");
+		JLabel fname=new JLabel("First Name:");
 		fname.setFont(new Font("ARIAL", Font.BOLD,20));
 		fname.setHorizontalAlignment(SwingConstants.LEFT);
-		fname.setBounds(80, 10, screenWidth, 20);
+		fname.setBounds(190, 80, 190, 20);
 		Showdetails.add(fname);
 		
 		JTextField TxtFname=new JTextField();
 		TxtFname.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtFname.setBounds(260,10,300,30);
+		TxtFname.setBounds(310,80,340,30);
 		Showdetails.add(TxtFname);
 		TxtFname.setEditable(false);
 		
 		
 		//Label for Last name-->
 
-		JLabel lname=new JLabel("LName:");
+		JLabel lname=new JLabel("Last Name:");
 		lname.setFont(new Font("ARIAL", Font.BOLD,20));
 		lname.setHorizontalAlignment(SwingConstants.LEFT);
-		lname.setBounds(80, 60, screenWidth, 20);
+		lname.setBounds(190,130, 190, 20);
 		Showdetails.add(lname);
 		
 		JTextField TxtLname=new JTextField();
 		TxtLname.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtLname.setBounds(260,60,300,30);
+		TxtLname.setBounds(310,130,340,30);
 		Showdetails.add(TxtLname);
 		TxtLname.setEditable(false);
 		
@@ -148,13 +112,13 @@ class Faculty{
 		JLabel uname=new JLabel("UserName:");
 		uname.setFont(new Font("ARIAL", Font.BOLD,20));
 		uname.setHorizontalAlignment(SwingConstants.LEFT);
-		uname.setBounds(80,110, screenWidth, 20);
+		uname.setBounds(190,180,190, 20);
 		Showdetails.add(uname);
 		
 		
 		JTextField TxtUname=new JTextField();
 		TxtUname.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtUname.setBounds(260,110,300,30);
+		TxtUname.setBounds(310,180,340,30);
 		Showdetails.add(TxtUname);
 		TxtUname.setEditable(false);
 			
@@ -162,13 +126,13 @@ class Faculty{
 		JLabel glabel=new JLabel("Gender:");
 		glabel.setFont(new Font("ARIAL", Font.BOLD,20));
 		glabel.setHorizontalAlignment(SwingConstants.LEFT);
-		glabel.setBounds(80, 210, screenWidth, 20);
+		glabel.setBounds(190, 230,190, 20);
 		Showdetails.add(glabel);
 		
 		
 		JTextField TxtGender=new JTextField();
 		TxtGender.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtGender.setBounds(260,210,300,30);
+		TxtGender.setBounds(310,230,340,30);
 		Showdetails.add(TxtGender);
 		TxtGender.setEditable(false);
 		
@@ -216,21 +180,21 @@ class Faculty{
 		JLabel Susername=new JLabel("Enter UserName:");
 		Susername.setFont(new Font("ARIAL", Font.BOLD,20));
 		Susername.setHorizontalAlignment(SwingConstants.LEFT);
-		Susername.setBounds(80, 10, screenWidth, 25);
+		Susername.setBounds(190, 80, 190, 20);
 		Suserpanel.add(Susername);
 		
 		//TextfField for Student UserName-->
 		
 		JTextField TxtUserName=new JTextField();
 		TxtUserName.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtUserName.setBounds(260,10,300,25);
+		TxtUserName.setBounds(350,80,340,30);
 		Suserpanel.add(TxtUserName);
 		
 		//Button for submit---> 
 		
 		JButton btn3=new JButton("Submit");
 		btn3.setHorizontalAlignment(SwingConstants.CENTER);
-		btn3.setBounds(250,100,100,30);
+		btn3.setBounds(350,130,100,30);
 		Suserpanel.add(btn3);
 		
 		btn3.addActionListener(new ActionListener() {
@@ -261,12 +225,12 @@ class Faculty{
 		JLabel Subject1=new JLabel("Subject1");
 		Subject1.setFont(new Font("ARIAL", Font.BOLD,20));
 		Subject1.setHorizontalAlignment(SwingConstants.LEFT);
-		Subject1.setBounds(80, 10, screenWidth, 20);
+		Subject1.setBounds(190, 80, 190, 20);
 		AddMarks.add(Subject1);
 		
 		JTextField TxtS1=new JTextField();
 		TxtS1.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtS1.setBounds(260,10,300, 30);
+		TxtS1.setBounds(300,80,340, 30);
 		AddMarks.add(TxtS1);
 		
 		
@@ -276,12 +240,12 @@ class Faculty{
 		JLabel Subject2=new JLabel("Subject2");
 		Subject2.setFont(new Font("ARIAL", Font.BOLD,20));
 		Subject2.setHorizontalAlignment(SwingConstants.LEFT);
-		Subject2.setBounds(80, 50, screenWidth, 20);
+		Subject2.setBounds(190, 120, 190, 20);
 		AddMarks.add(Subject2);
 		
 		JTextField TxtS2=new JTextField();
 		TxtS2.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtS2.setBounds(260,50,300,30);
+		TxtS2.setBounds(300,120,340,30);
 		AddMarks.add(TxtS2);
 		
 		
@@ -291,13 +255,13 @@ class Faculty{
 		JLabel Subject3=new JLabel("Subject3");
 		Subject3.setFont(new Font("ARIAL", Font.BOLD,20));
 		Subject3.setHorizontalAlignment(SwingConstants.LEFT);
-		Subject3.setBounds(80, 90, screenWidth, 20);
+		Subject3.setBounds(190, 160, 190, 20);
 		AddMarks.add(Subject3);
 		
 		
 		JTextField TxtS3=new JTextField();
 		TxtS3.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtS3.setBounds(260,90,300,30);
+		TxtS3.setBounds(300,160,340,30);
 		AddMarks.add(TxtS3);
 		
 		//Label for Aggregate-->
@@ -305,18 +269,18 @@ class Faculty{
 		JLabel Aggregate=new JLabel("Aggregate");
 		Aggregate.setFont(new Font("ARIAL", Font.BOLD,20));
 		Aggregate.setHorizontalAlignment(SwingConstants.LEFT);
-		Aggregate.setBounds(80, 130, screenWidth, 20);
+		Aggregate.setBounds(190, 200, 190, 20);
 		AddMarks.add(Aggregate);
 			
 		
 		JTextField TxtAggr=new JTextField();
 		TxtAggr.setHorizontalAlignment(SwingConstants.CENTER);
-		TxtAggr.setBounds(260,130,300,30);
+		TxtAggr.setBounds(300,200,340,30);
 		AddMarks.add(TxtAggr);
 		TxtAggr.setEditable(false);
 		
 		JButton btnAddMarks=new JButton("Submit");
-		btnAddMarks.setBounds(120, 180, 100, 30);
+		btnAddMarks.setBounds(300, 240, 100, 30);
 		AddMarks.add(btnAddMarks);
 	   
 //Panel for entering marks ends here.		
@@ -361,7 +325,6 @@ class Faculty{
 		
 		
 		Suserpanel.setVisible(true);
-		//details.setVisible(false);
 		AddMarks.setVisible(false);
 		Showdetails.setVisible(false);
 		
@@ -377,8 +340,7 @@ class Faculty{
 		{
 	public void actionPerformed(ActionEvent e)
 	{
-		
-	    //details.setVisible(false);	
+	
 		AddMarks.setVisible(true);
 		Showdetails.setVisible(false);
 		Suserpanel.setVisible(false);
@@ -423,9 +385,7 @@ class Faculty{
 		
 	}
 
-//	public static void main(String[] args){
-//		new Faculty("S962333singh");
-//	}
+
 	
 	
 
