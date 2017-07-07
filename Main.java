@@ -1,10 +1,11 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.net.URL;
 import java.util.Random;
 
 import javax.swing.*;
 
-public class Logintest{
+public class Main{
 
 	static JFrame f;
 	JPanel home,courses,login,information,contact,footer;
@@ -28,13 +29,13 @@ public class Logintest{
 	
 	public static void main(String[] args) {
 		
-		new Logintest();
+		new Main();
 
 	}
 	
 	
 
-	Logintest()
+	Main()
 	{
 		
 		//To get screen size start
@@ -214,7 +215,8 @@ public class Logintest{
 		
 		//Adding Image for registeration panel--->
 		
-				ImageIcon image2 = new ImageIcon("C:/Users/SHASHANK SINGH/Desktop/Java Training/Project/cms6.jpg");
+		URL url=Main.class.getResource("Resources/cms6");
+				ImageIcon image2 = new ImageIcon(url);
 				JLabel label2 = new JLabel("", image2, JLabel.LEFT);
 				register.add(label2);
 			    label2.setBounds(10, 80, 210, 200);
@@ -284,6 +286,62 @@ public class Logintest{
 				JLabel label6= new JLabel("", image6, JLabel.LEFT);
 				contact.add(label6);
 			    label6.setBounds(950, 50, 220, 225);
+			    
+			    
+			    
+			  //Labels for "Name"---->		    
+			    
+			    JLabel lblinfo1=new JLabel("SUDHANSHU RAI");
+				lblinfo1.setFont(new Font("ARIAL",Font.BOLD,15));
+				lblinfo1.setBounds(90, 300, 200, 20);
+				contact.add(lblinfo1);
+				
+			    
+				JLabel lblinfo2=new JLabel("SHASHANK SINGH");
+				lblinfo2.setFont(new Font("ARIAL",Font.BOLD,15));
+				lblinfo2.setBounds(390, 300, 200, 20);
+				contact.add(lblinfo2);
+				
+				
+				JLabel lblinfo3=new JLabel("PREETI KUMARI");
+				lblinfo3.setFont(new Font("ARIAL",Font.BOLD,15));
+				lblinfo3.setBounds(710, 300, 200, 20);
+				contact.add(lblinfo3);
+				
+				
+				JLabel lblinfo4=new JLabel("ROHIT GOEL");
+				lblinfo4.setFont(new Font("ARIAL",Font.BOLD,15));
+				lblinfo4.setBounds(1010, 300, 200, 20);
+				contact.add(lblinfo4);
+				
+		
+	//Labels for E-mail ID----->	
+				 
+			                JLabel lblinfo5=new JLabel("sud6991@gmail.com");
+							lblinfo5.setFont(new Font("ARIAL",Font.BOLD,15));
+							lblinfo5.setBounds(90, 330, 200, 20);
+							contact.add(lblinfo5);
+							
+						    
+							JLabel lblinfo6=new JLabel("shashanksingh234@gmail.com");
+							lblinfo6.setFont(new Font("ARIAL",Font.BOLD,15));
+							lblinfo6.setBounds(360, 330, 220, 20);
+							contact.add(lblinfo6);
+							
+							
+							JLabel lblinfo7=new JLabel("preetikumari471@gmail.com");
+							lblinfo7.setFont(new Font("ARIAL",Font.BOLD,15));
+							lblinfo7.setBounds(690, 330, 200, 20);
+							contact.add(lblinfo7);
+							
+							
+							JLabel lblinfo8=new JLabel("rohitgoel499@gmail.com");
+							lblinfo8.setFont(new Font("ARIAL",Font.BOLD,15));
+							lblinfo8.setBounds(990, 330, 200, 20);
+							contact.add(lblinfo8);
+			    
+			    
+	    
 		//Contact panel design end
 		
 		//Footer panel design start
