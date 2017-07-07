@@ -45,7 +45,7 @@ class Connectivity{
 				{
 					try {
 						new Admin(lusername);
-						Logintest.f.setVisible(false);
+						Main.f.setVisible(false);
 					} catch (ClassNotFoundException e) {
 					}
 				}
@@ -53,26 +53,26 @@ class Connectivity{
 				{
 					try {
 						new Accountant(lusername);
-						Logintest.f.setVisible(false);
+						Main.f.setVisible(false);
 					} catch (ClassNotFoundException e) {
 					}
 				}
 				else if(Role_id.equals(Student))
 				{
 					new Student(lusername);
-					Logintest.f.setVisible(false);
+					Main.f.setVisible(false);
 				}
 				else if(Role_id.equals(Faculty))
 				{
 					new Faculty(lusername);
-					Logintest.f.setVisible(false);
+					Main.f.setVisible(false);
 				}
 				//Userpage uo=new Userpage();
 				//Logintest.f.setVisible(false);
 				//uo.user();
 				}
 			else{
-				JOptionPane.showMessageDialog(Logintest.nlogin, "Wrong Userame or password");
+				JOptionPane.showMessageDialog(Main.nlogin, "Wrong Userame or password");
 				System.out.println("Failed");
 				
 			}
@@ -86,7 +86,7 @@ class Connectivity{
 		rusername=rusername.toLowerCase();
 		
 		try {
-			PreparedStatement st=con.prepareStatement("insert into user values(?,?,?,?,?,?,?)");
+			PreparedStatement st=con.prepareStatement("insert into register values(?,?,?,?,?,?,?)");
 			st.setString(1, rfname);
 			st.setString(2, rlname);
 			st.setString(3, rusername);
