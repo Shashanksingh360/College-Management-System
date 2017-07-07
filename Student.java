@@ -8,9 +8,7 @@ import java.sql.SQLException;
 import javax.swing.*;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 
 class Student  {
 	
@@ -19,13 +17,6 @@ class Student  {
 	
 	Student(String lusername){
 
-		
-		//To get screen size start
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		screenSize.getHeight();
-		screenSize.getWidth();
-		
-		//To get screen size end
 
 		JFrame userFrame=new JFrame("Student");
 		userFrame.setLayout(null);
@@ -48,26 +39,21 @@ class Student  {
 		btnPanel.setBounds(20,10,200,568);
 		btnPanel.setBackground(Color.gray);
 		backuser.add(btnPanel);
-		
-//		JPanel details=new JPanel();
-//		details.setLayout(null);
-//		details.setBounds(230, 10, 1110,568);
-//		details.setBackground(Color.yellow);
-//		backuser.add(details);
+
 		
 		//button actions
 		
 		JButton stu_btn1=new JButton("Student Details");
-		stu_btn1.setBounds(40, 80, 120, 20);
+		stu_btn1.setBounds(20, 80, 140, 20);
 		btnPanel.add(stu_btn1);
 		
 
 		JButton stu_btn2=new JButton("Academic Details");
-		stu_btn2.setBounds(40, 120, 120, 20);
+		stu_btn2.setBounds(20, 120, 140, 20);
 		btnPanel.add(stu_btn2);
 		
 		JButton stu_btn3=new JButton("Fees Details");
-		stu_btn3.setBounds(40, 160, 120, 20);
+		stu_btn3.setBounds(20, 160, 140, 20);
 		btnPanel.add(stu_btn3);
 		
 		//   Student Details---->
@@ -88,7 +74,7 @@ class Student  {
 		
 		JLabel stdLname=new JLabel("LAST NAME");
 		stdLname.setFont(new Font("ARIAL", Font.BOLD, 20));
-		stdLname.setBounds(190,130, 340, 30);
+		stdLname.setBounds(190,130, 190, 20);
 		txtLname=new JTextField();
 		txtLname.setBounds(310,130,340,30);
 		
@@ -125,28 +111,8 @@ class Student  {
 		catch (ClassNotFoundException e1) {
 		} 
 		
-		
-//		JLabel stdRole=new JLabel("ROLE");
-//		stdRole.setFont(new Font("ARIAL", Font.BOLD, 20));
-//		stdRole.setBounds(190, 280, 190, 20);
-//		JTextField txtRole=new JTextField();
-//		txtRole.setBounds(310,280,340,30);
-//		
-//		
-//		JLabel stdStatus=new JLabel("STATUS");
-//		stdStatus.setFont(new Font("ARIAL", Font.BOLD, 20));
-//		stdStatus.setBounds(190, 330, 190, 20);
-//		JTextField txtStatus=new JTextField();
-//		txtStatus.setBounds(310,330,340,30);
-//		
-		
-		
-		//Student_panel.add(txtStatus);
-		//Student_panel.add(stdStatus);
 		Student_panel.add(txtLname);
 		Student_panel.add(stdLname);
-		//Student_panel.add(txtRole);
-		//Student_panel.add(stdRole);
 		Student_panel.add(txtGender);
 		Student_panel.add(stdGender);
 		Student_panel.add(txtUname);
@@ -159,10 +125,7 @@ class Student  {
 		txtFname.setEditable(false);
 		txtLname.setEditable(false);
 		txtUname.setEditable(false);
-		txtGender.setEditable(false);
-		//txtRole.setEditable(false);
-		//txtStatus.setEditable(false);
-		
+		txtGender.setEditable(false);		
 		
 		//  Academic Details---->
 		
@@ -315,7 +278,6 @@ class Student  {
 		stu_btn1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
 				Student_panel.setVisible(true);
 				Academics_panel.setVisible(false);
 				Fees_panel.setVisible(false);
@@ -326,7 +288,6 @@ class Student  {
 		stu_btn2.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
 				Student_panel.setVisible(false);
 				Academics_panel.setVisible(true);
 				Fees_panel.setVisible(false);
@@ -339,7 +300,6 @@ class Student  {
 		stu_btn3.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent e){
-				//details.setVisible(false);
 				Student_panel.setVisible(false);
 				Academics_panel.setVisible(false);
 				Fees_panel.setVisible(true);
@@ -350,10 +310,7 @@ class Student  {
 		
 	}
 
-//	public static void main(String[] args){
-//		new Student("s179658singh");
-//		
-//	}
+
 	
 	
 
